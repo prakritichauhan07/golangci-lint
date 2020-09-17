@@ -46,8 +46,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ${{ steps.prep.outputs.tag_name }}
-            ${{ steps.prepare.outputs.major_tag }}
+            ab1997/golangci-lint:${{ steps.prep.outputs.tag_name }}
+            ab1997/golangci-lint:${{ steps.prepare.outputs.major_tag }}
       - name: build and publish alpine image
         id: docker_build_alpine
         uses: docker/build-push-action@v2
@@ -57,6 +57,6 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ${{ steps.prep.outputs.tag_name }}
-            ${{ steps.prepare.outputs.major_tag }}
+            ab1997/golangci-lint:${{ steps.prep.outputs.tag_name }}-alpine
+            ab1997/golangci-lint:${{ steps.prepare.outputs.major_tag }}-alpine
           

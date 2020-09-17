@@ -4,5 +4,4 @@ FROM golang:1.15
 RUN git clone https://github.com/prakriti07/golangci-lint
 WORKDIR golangci-lint
 RUN go build -o /usr/bin/golangci-lint ./cmd/golangci-lint/main.go
-COPY golangci-lint /usr/bin/
 CMD ["golangci-lint"]

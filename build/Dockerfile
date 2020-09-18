@@ -8,5 +8,5 @@ RUN go build -o /usr/bin/golangci-lint ./cmd/golangci-lint/main.go
 
 # stage 2
 FROM golang:1.15
-COPY --from=builder /usr/bin/golangci-lint /usr/bin/golangci-lint
+COPY --from=builder /usr/bin/golangci-lint /usr/bin/
 CMD ["golangci-lint"]

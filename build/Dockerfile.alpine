@@ -14,5 +14,5 @@ RUN CGO_ENABLED=0 go build -o /usr/bin/golangci-lint ./cmd/golangci-lint/main.go
 # stage 2
 FROM golang:1.15-alpine
 RUN apk --no-cache add gcc musl-dev git mercurial
-COPY --from=builder /usr/bin/golangci-lint /usr/bin/golangci-lint
+COPY --from=builder /usr/bin/golangci-lint /usr/bin/
 CMD ["golangci-lint"]

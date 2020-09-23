@@ -1,7 +1,6 @@
 # stage 1 building the code
 FROM golang:1.15 as builder
 
-# don't place it into $GOPATH/bin because Drone mounts $GOPATH as volume
 COPY / /app
 RUN ls
 WORKDIR /app

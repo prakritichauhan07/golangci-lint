@@ -4,12 +4,12 @@ FROM golang:1.15-alpine as builder
 # gcc is required to support cgo;
 # git and mercurial are needed most times for go get`, etc.
 # See https://github.com/docker-library/golang/issues/80
-RUN apk --no-cache add gcc musl-dev git mercurial
+#RUN apk --no-cache add gcc musl-dev git mercurial
 
 COPY / /golang
 WORKDIR /golang
 RUN ls
-#RUN CGO_ENABLED=0 go build -o golangci-lint ./cmd/golangci-lint/main.go
+RUN CGO_ENABLED=0 go build -o golangci-lint ./cmd/golangci-lint/main.go
 
 # stage 2
 FROM golang:1.15-alpine

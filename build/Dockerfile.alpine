@@ -3,7 +3,7 @@ FROM golang:1.15-alpine as builder
 
 COPY / /golang
 WORKDIR /golang
-RUN go version && whereis go
+RUN go version && ls -l /usr/local/go/
 RUN CGO_ENABLED=0 go build -o golangci-lint ./cmd/golangci-lint/main.go
 
 # stage 2

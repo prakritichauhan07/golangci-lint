@@ -16,6 +16,9 @@ FROM alpine:3.12.0
 RUN apk --no-cache add gcc musl-dev git mercurial go
 
 # don't place it into $GOPATH/bin because Drone mounts $GOPATH as volume
+ENV GOROOT /usr/lib/go
+ENV GOPATH /go
+ENV PATH /go/bin:$PATH
 #COPY --from=builder /usr/local/go/ /usr/local/go/
 #RUN export PATH="/usr/local/go/bin:$PATH" && go version
 COPY --from=builder /golang/golangci-lint /usr/bin/
